@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido de Pizza + Registro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1585238341971-0659c1e3fd4f?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    fieldset {
+      border: 2px solid #cc3300;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #cc3300;
+      font-size: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .checkbox-group, .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-group label, .radio-group label {
+      font-weight: normal;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      width: 100%;
+      background-color: #cc3300;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #aa2a00;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 1rem;
+      }
+
+      legend {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="https://formsubmit.co/tu-email@ejemplo.com" method="POST">
+    <!-- Reemplaza el email por el que te dé FormSubmit.co -->
+
+    <!-- Parte 1: Datos del cliente -->
+    <fieldset>
+      <legend>Datos del Cliente</legend>
+
+      <label for="tratamiento">Tratamiento:</label>
+      <select id="tratamiento" name="tratamiento">
+        <option value="Sr.">Sr.</option>
+        <option value="Sra.">Sra.</option>
+        <option value="Otre">Otre</option>
+      </select>
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Contraseña (para pedidos online):</label>
+      <input type="password" id="password" name="password" required>
+    </fieldset>
+
+    <!-- Parte 2: Pedido -->
+    <fieldset>
+      <legend>Tu Pedido</legend>
+
+      <label for="tipo_pizza">Tipo de Pizza:</label>
+      <select id="tipo_pizza" name="tipo_pizza">
+        <option value="Margarita">Margarita</option>
+        <option value="Cuatro Quesos">Cuatro Quesos</option>
+        <option value="Pepperoni">Pepperoni</option>
+        <option value="Hawaiana">Hawaiana</option>
+        <option value="Vegetariana">Vegetariana</option>
+        <option value="Barbacoa">Barbacoa</option>
+      </select>
+
+      <label>Ingredientes extra:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="extras[]" value="Aceitunas" checked>Aceitunas</label>
+        <label><input type="checkbox" name="extras[]" value="Champiñones">Champiñones</label>
+        <label><input type="checkbox" name="extras[]" value="Cebolla">Cebolla</label>
+        <label><input type="checkbox" name="extras[]" value="Anchoas">Anchoas</label>
+      </div>
+
+      <label>Entrega:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="entrega" value="Domicilio" checked>Enviar a casa</label>
+        <label><input type="radio" name="entrega" value="Recoger">Venir a buscar</label>
+      </div>
+
+      <label for="comentario">Comentario:</label>
+      <textarea id="comentario" name="comentario" rows="3" maxlength="200"></textarea>
+    </fieldset>
+
+    <!-- FormSubmit hidden field to disable CAPTCHA -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Enviar Pedido</button>
+  </form>
+</body>
+</html>
